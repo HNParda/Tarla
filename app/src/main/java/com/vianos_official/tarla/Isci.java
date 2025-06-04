@@ -7,11 +7,13 @@ public class Isci {
 
     public int ID;
     public String ISIM;
-    public ArrayList<LocalDate> yoklama;
-    public ArrayList<LocalDate> odeme;
+    public ArrayList<LocalDate> YOKLAMA;
+    public ArrayList<LocalDate> ODEME;
 
-    public Isci () {
-        yoklama = new ArrayList<>();
-        odeme = new ArrayList<>();
+    public Isci(int id, String isim, ArrayList<LocalDate> yoklama, ArrayList<LocalDate> odeme) {
+        this.ID = id;
+        this.ISIM = isim;
+        this.YOKLAMA = yoklama;
+        this.ODEME = odeme;
     }
 }

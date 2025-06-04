@@ -65,8 +65,8 @@ public class YoklamaAdapter extends RecyclerView.Adapter<YoklamaAdapter.YoklamaV
 
         public void goster(Isci isci, LocalDate tarih) {
             isim.setText(isci.ISIM);
-            geldi.setChecked(isci.yoklama.contains(tarih));
-            odendi.setChecked(isci.odeme.contains(tarih));
+            geldi.setChecked(isci.YOKLAMA.contains(tarih));
+            odendi.setChecked(isci.ODEME.contains(tarih));
         }
     }
 }
