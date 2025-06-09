@@ -20,8 +20,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -35,6 +34,10 @@ android {
 }
 
 dependencies {
+    implementation(libs.gson)
+    // The view calendar library for Android
+    implementation("com.kizitonwose.calendar:view:2.7.0")
+
 
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -43,6 +46,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

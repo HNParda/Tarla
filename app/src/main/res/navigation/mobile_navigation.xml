@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/navigation_yoklama"
-        android:name="com.vianos_official.tarla.ui.yoklama.YoklamaFragment"
+        android:name="com.vianos_official.tarla.ui.fragments.yoklama.YoklamaFragment"
         android:label="@string/title_yoklama"
         tools:layout="@layout/fragment_yoklama" />
     <fragment
         android:id="@+id/navigation_notlar"
-        android:name="com.vianos_official.tarla.ui.notlar.NotlarFragment"
+        android:name="com.vianos_official.tarla.ui.fragments.notlar.NotlarFragment"
         android:label="@string/title_notlar"
         tools:layout="@layout/fragment_notlar" />
     <fragment
-        android:id="@+id/navigation_ayarlar"
-        android:name="com.vianos_official.tarla.ui.ayarlar.AyarlarFragment"
-        android:label="@string/title_ayarlar"
-        tools:layout="@layout/fragment_ayarlar" />
+        android:id="@+id/navigation_kisiler"
+        android:name="com.vianos_official.tarla.ui.fragments.isciler.IscilerFragment"
+        android:label="@string/title_kisiler"
+        tools:layout="@layout/fragment_isciler" />
 
 </navigation>
