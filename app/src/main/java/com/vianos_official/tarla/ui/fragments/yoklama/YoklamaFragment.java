@@ -81,8 +81,7 @@ public class YoklamaFragment extends Fragment {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         tarih.setText(gun.format(formatter));
 
-        Locale tr = new Locale("tr", "TR");
-        String trGun = gun.getDayOfWeek().getDisplayName(TextStyle.FULL, tr);
+        String trGun = gun.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
         haftaGun.setText(trGun);
 
     }

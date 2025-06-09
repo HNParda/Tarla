@@ -101,8 +101,8 @@ public class YoklamaAdapter extends RecyclerView.Adapter<YoklamaAdapter.YoklamaV
             geldi.setChecked(liste.get(getLayoutPosition()).YOKLAMA.contains(tarih.toString()));
             odendi.setChecked(liste.get(getLayoutPosition()).ODEME.contains(tarih.toString()));
 
-            geldi.setOnCheckedChangeListener((compoundButton, b) -> liste.get(getLayoutPosition()).yoklamaBtn(tarih, b));
-            odendi.setOnCheckedChangeListener((compoundButton, b) -> liste.get(getLayoutPosition()).odemeBtn(tarih, b));
+            geldi.setOnClickListener((compoundButton) -> liste.get(getLayoutPosition()).yoklamaBtn((CheckBox) compoundButton, tarih));
+            odendi.setOnClickListener((compoundButton) -> liste.get(getLayoutPosition()).odemeBtn((CheckBox) compoundButton, tarih));
         }
 
 

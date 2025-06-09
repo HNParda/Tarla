@@ -1,6 +1,7 @@
 package com.vianos_official.tarla;
 
 import android.util.Log;
+import android.widget.CheckBox;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -36,13 +37,13 @@ public class Isci {
 
     }
 
-    public void yoklamaBtn(LocalDate tarih, boolean geldi) {
-        if (geldi) YOKLAMA.add(tarih.toString());
+    public void yoklamaBtn(CheckBox btn, LocalDate tarih) {
+        if (btn.isChecked())YOKLAMA.add(tarih.toString());
         else YOKLAMA.remove(tarih.toString());
     }
 
-    public void odemeBtn(LocalDate tarih, boolean odendi) {
-        if (odendi) ODEME.add(tarih.toString());
+    public void odemeBtn(CheckBox btn, LocalDate tarih) {
+        if (btn.isChecked()) ODEME.add(tarih.toString());
         else ODEME.remove(tarih.toString());
     }
 

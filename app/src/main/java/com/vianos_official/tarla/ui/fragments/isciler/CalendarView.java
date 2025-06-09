@@ -1,73 +1,64 @@
 package com.vianos_official.tarla.ui.fragments.isciler;
 
+import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 
 import com.kizitonwose.calendar.core.CalendarDay;
 import com.kizitonwose.calendar.core.DayPosition;
-import com.kizitonwose.calendar.view.CalendarView;
 import com.kizitonwose.calendar.view.MonthDayBinder;
-import com.kizitonwose.calendar.view.ViewContainer;
-import com.vianos_official.tarla.Isci;
-import com.vianos_official.tarla.R;
-import com.vianos_official.tarla.ui.MainActivity;
+
+import org.w3c.dom.Text;
 
 import java.time.DayOfWeek;
 import java.time.YearMonth;
-import java.util.ArrayList;
-
 import java.time.format.TextStyle;
+import java.util.ArrayList;
 import java.util.Locale;
 
-public class IsciActivity extends AppCompatActivity {
+public class CalendarView extends View {
+    com.kizitonwose.calendar.view.CalendarView calendarView;
+    TextView ay;
+    LinearLayout gunler;
 
-    Isci isci;
-    TextView yoklamaAy;
-    LinearLayout yoklamaGunler;
-    TextView odemeAy;
-    LinearLayout odemeGunler;
+    public CalendarView(@NonNull Context context) {
+        super(context);
+    }
 
+    public CalendarView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_isci);
+    public CalendarView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
-        int index = getIntent().getIntExtra("isci_id", 0);
-        isci = MainActivity.liste.get(index);
-
-
-
-        com.vianos_official.tarla.ui.fragments.isciler.CalendarView odemevView = findViewById(R.id.odeme);
-        ArrayList<String> aaa = isci.ODEME;
-
+    public CalendarView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
 
 
-        CalendarView calendarView = findViewById(R.id.yoklama);
-        yoklamaAy = findViewById(R.id.monthTitle1);
-        yoklamaGunler = findViewById(R.id.weekDaysContainer1);
-        //odemeAy = findViewById(R.id.monthTitle2);
-        //odemeGunler = findViewById(R.id.weekDaysContainer2);
+    public void init(ArrayList<String> highlightedDates) {/*
+calendarView = findViewById(R.id)
 
 
 
-        ArrayList<String> highlightedDates = isci.YOKLAMA;
-
-        calendarView.setDayBinder(new MonthDayBinder<DayViewContainer>() {
+        calendarView.setDayBinder(new MonthDayBinder<IsciActivity.DayViewContainer>() {
             @Override
-            public DayViewContainer create(View view) {
-                return new DayViewContainer(view);
+            public IsciActivity.DayViewContainer create(View view) {
+                return new IsciActivity.DayViewContainer(view);
             }
 
             @Override
-            public void bind(DayViewContainer container, CalendarDay day) {
+            public void bind(IsciActivity.DayViewContainer container, CalendarDay day) {
                 TextView textView = container.textView;
                 CardView gunKutu = container.gunKutu;
                 textView.setText(String.valueOf(day.getDate().getDayOfMonth()));
@@ -89,7 +80,7 @@ public class IsciActivity extends AppCompatActivity {
         calendarView.setMonthScrollListener(month -> {
             String formatted = month.getYearMonth().getMonth().getDisplayName(TextStyle.FULL, Locale.getDefault())
                     + " " + month.getYearMonth().getYear();
-            yoklamaAy.setText(formatted);
+            ay.setText(formatted);
             return null;
         });
 
@@ -108,19 +99,7 @@ public class IsciActivity extends AppCompatActivity {
             textView.setGravity(Gravity.CENTER);
             textView.setTextColor(Color.DKGRAY);
             textView.setTextSize(14);
-            yoklamaGunler.addView(textView);
-        }
-    }
-
-
-    public static class DayViewContainer extends ViewContainer {
-        public final TextView textView;
-        public final CardView gunKutu;
-
-        public DayViewContainer(View view) {
-            super(view);
-            textView = view.findViewById(R.id.calendarDayText);
-            gunKutu = view.findViewById(R.id.gunKutu);
-        }
+            gunler.addView(textView);
+        }*/
     }
 }

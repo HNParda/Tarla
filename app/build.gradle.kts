@@ -36,7 +36,7 @@ android {
 dependencies {
     implementation(libs.gson)
     // The view calendar library for Android
-    implementation("com.kizitonwose.calendar:view:2.7.0")
+    implementation(libs.view)
 
 
     implementation(libs.appcompat)
