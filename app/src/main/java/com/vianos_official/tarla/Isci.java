@@ -20,10 +20,6 @@ public class Isci {
     public ArrayList<String> ODEME;
 
     public Isci(int id, String isim, String yoklama, String odeme) {
-        Log.e("testtest 1", String.valueOf(id));
-        Log.e("testtest 2", isim);
-        Log.e("testtest 3", yoklama);
-        Log.e("testtest 4", odeme);
         this.ID = id;
         this.ISIM = isim;
         this.YOKLAMA_STRING = yoklama;

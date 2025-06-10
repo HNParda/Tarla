@@ -18,6 +18,9 @@
             android:name=".ui.fragments.isciler.IsciActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.fragments.notlar.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
