@@ -41,7 +41,6 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-
     public ArrayList<Isci> getIsciListe() {
 
         ArrayList<Isci> yeniListe = new ArrayList<>();
@@ -105,5 +104,23 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
         db.close();
         MainActivity.liste = getIsciListe();
+    }
+
+    public void isciSil(int ID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, "id = ?", new String[]{String.valueOf(ID)});
+        db.close();
+        MainActivity.liste = getIsciListe();
+    }
+
+    public void duzenle(int id, String name) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(NAME_COL, name);
+        db.update(TABLE_NAME, contentValues, "id = ?", new String[]{String.valueOf(id)});
+
+        db.close();
     }
 }

@@ -1,6 +1,8 @@
 package com.vianos_official.tarla.ui.fragments.notlar;
 
-import android.content.SharedPreferences;
+import static com.vianos_official.tarla.ui.fragments.notlar.NotlarFragment.notlar;
+import static com.vianos_official.tarla.ui.fragments.notlar.NotlarFragment.sharedPreferences;
+
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,22 +15,21 @@ public class DetailActivity extends AppCompatActivity {
 
     EditText not;
     String isim;
-    SharedPreferences sharedPreferences;
-
+    int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        sharedPreferences = getSharedPreferences("notlar", MODE_PRIVATE);
 
         not = findViewById(R.id.detailTextView);
         TextView notIsim = findViewById(R.id.Data_Notes);
 
         // Get the data passed from MainActivity
-        isim = getIntent().getStringExtra("ITEM");
-        String icerik = getIntent().getStringExtra("CONTENT");
+        index = getIntent().getIntExtra("NOT", 0);
+        isim = notlar.get(index).notIsim;
+        String icerik = notlar.get(index).notIcerik;
 
         notIsim.setText(isim);
         not.setText(icerik);
@@ -38,7 +39,9 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        sharedPreferences.edit().putString(isim, not.getText().toString()).apply();
+        String yeniNot = not.getEditableText().toString();
+        notlar.get(index).notIcerik = yeniNot;
+        sharedPreferences.edit().putString(isim, yeniNot).apply();
     }
 
 }

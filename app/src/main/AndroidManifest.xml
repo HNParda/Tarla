@@ -15,7 +15,7 @@
         tools:ignore="UnusedAttribute"
         tools:targetApi="31" >
         <activity
-            android:name=".ui.fragments.isciler.IsciActivity"
+            android:name=".ui.fragments.yoklama.IsciActivity"
             android:exported="false" />
         <activity
             android:name=".ui.fragments.notlar.DetailActivity"

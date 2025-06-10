@@ -1,43 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginHorizontal="40dp"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="20dp"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/ay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="8dp"
-            android:text="Juni 2025"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/gunler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginVertical="3dp"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/ay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:text="OCAK 2025"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/gunler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <com.kizitonwose.calendar.view.CalendarView
             android:id="@+id/calendar"
+            android:background="@color/cardview_shadow_start_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cv_daySize="square"
+            android:padding="10dp"
+            app:cv_daySize="freeForm"
             app:cv_dayViewResource="@layout/calendar_day_layout" />
 
     </LinearLayout>
 
-</LinearLayout>
+
+</androidx.cardview.widget.CardView>

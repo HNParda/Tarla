@@ -57,11 +57,11 @@ public class IscilerFragment extends Fragment {
                 dbHandler.isciEkle(name);
                 adapter.notifyItemInserted(liste.size());
             } else {
-                Toast.makeText(context, "Name darf nicht leer sein", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "İsim boş olamaz", Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder.setNegativeButton("Abbrechen", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("İptal", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }

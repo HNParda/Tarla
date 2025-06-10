@@ -18,19 +18,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.vianos_official.tarla.R;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class NotlarFragment extends Fragment {
 
     private static final int REQUEST_CODE_ADD_NOTE = 1;
+    public static SharedPreferences sharedPreferences;
     private MyAdapter adapter;
-    private ArrayList<Not> notlar;
-    SharedPreferences sharedPreferences;
+    public static ArrayList<Not> notlar = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notlar, container, false);
@@ -41,7 +38,7 @@ public class NotlarFragment extends Fragment {
         sharedPreferences = container.getContext().getSharedPreferences("notlar", MODE_PRIVATE);
 
 
-        notlar = (ArrayList<Not>) sharedPreferences.getAll();
+        sharedPreferences.getAll().forEach((s, o) -> notlar.add(new Not(s, (String) o)));
 
         adapter = new MyAdapter(view.getContext(), notlar);
         listView.setAdapter(adapter);

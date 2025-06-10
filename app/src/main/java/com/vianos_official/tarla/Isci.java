@@ -26,16 +26,20 @@ public class Isci {
         this.ODEME_STRING = odeme;
 
         Gson gson = new Gson();
-        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<String>>() {
+        }.getType();
 
         YOKLAMA = gson.fromJson(yoklama, listType);
         ODEME = gson.fromJson(odeme, listType);
 
     }
 
-    public void yoklamaBtn(CheckBox btn, LocalDate tarih) {
-        if (btn.isChecked())YOKLAMA.add(tarih.toString());
-        else YOKLAMA.remove(tarih.toString());
+    public void yoklamaBtn(CheckBox yoklamaBtn, CheckBox odemeBtn, LocalDate tarih) {
+        if (yoklamaBtn.isChecked()) YOKLAMA.add(tarih.toString());
+        else {
+            YOKLAMA.remove(tarih.toString());
+            odemeBtn.setChecked(false);
+        }
     }
 
     public void odemeBtn(CheckBox btn, LocalDate tarih) {
@@ -50,7 +54,8 @@ public class Isci {
         String odeme_string = gson.toJson(ODEME);
 
         ArrayList<Kayit> map = new ArrayList<>();
-        if (yoklama_string != YOKLAMA_STRING) map.add(new Kayit(ID, DBHandler.YOKLAMA_COL, yoklama_string));
+        if (yoklama_string != YOKLAMA_STRING)
+            map.add(new Kayit(ID, DBHandler.YOKLAMA_COL, yoklama_string));
         if (odeme_string != ODEME_STRING) map.add(new Kayit(ID, DBHandler.ODEME_COL, odeme_string));
 
         return map;

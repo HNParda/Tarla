@@ -1,7 +1,12 @@
 package com.vianos_official.tarla.ui.fragments.notlar;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import static com.vianos_official.tarla.ui.fragments.notlar.NotlarFragment.sharedPreferences;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,16 +45,17 @@ public class MyAdapter extends ArrayAdapter<Not> {
 
         frameLayout.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetailActivity.class);
-            intent.putExtra("ITEM", values.get(position).notIsim);
-            intent.putExtra("CONTENT", values.get(position).notIcerik);
+            intent.putExtra("NOT", position);
             context.startActivity(intent);
         });
 
         deleteButton.setOnClickListener(v -> {
-            Toast.makeText(context, "Delete button clicked for item " + values.get(position), Toast.LENGTH_SHORT).show();
+            sharedPreferences.edit().remove(values.get(position).notIsim).apply();
+
             // Remove the item from the list
             values.remove(position);
             // Notify the adapter to refresh the list view
+
             notifyDataSetChanged();
         });
 

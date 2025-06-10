@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.isciler.IsciActivity">
+    tools:context=".ui.fragments.yoklama.IsciActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,51 +14,80 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <EditText
+        <TextView
             android:id="@+id/isim"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/monthTitle1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="8dp"
-            android:text="Juni 2025"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/weekDaysContainer1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#FFFF00"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Geldigi günler"
+                android:textSize="20sp" />
+
         </LinearLayout>
 
-        <com.kizitonwose.calendar.view.CalendarView
-            android:id="@+id/yoklama"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cv_daySize="square"
-            app:cv_dayViewResource="@layout/calendar_day_layout" />
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#00FF00"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Geldigi ve ödendigi günler"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <com.vianos_official.tarla.ui.fragments.isciler.CalendarView
-        android:id="@+id/odeme"
+    <com.vianos_official.tarla.ui.fragments.yoklama.CalendarView
+        android:id="@+id/takvim"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>
